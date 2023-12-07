@@ -1,0 +1,14 @@
+D:\OOP\3Lab3-part-1\Program\bin\Debug\net8.0\demo.exe
+D:\OOP\3Lab3-part-1\Program\bin\Debug\net8.0\demo.deps.json
+D:\OOP\3Lab3-part-1\Program\bin\Debug\net8.0\demo.runtimeconfig.json
+D:\OOP\3Lab3-part-1\Program\bin\Debug\net8.0\demo.dll
+D:\OOP\3Lab3-part-1\Program\bin\Debug\net8.0\demo.pdb
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net8.0\demo.GeneratedMSBuildEditorConfig.editorconfig
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net8.0\demo.AssemblyInfoInputs.cache
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net8.0\demo.AssemblyInfo.cs
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net8.0\demo.csproj.CoreCompileInputs.cache
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net8.0\demo.dll
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net8.0\refint\demo.dll
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net8.0\demo.pdb
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net8.0\demo.genruntimeconfig.cache
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net8.0\ref\demo.dll

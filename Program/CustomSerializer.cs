@@ -1,9 +1,9 @@
 ﻿using System.Reflection;
 using System.Text;
 
-namespace Demo
+namespace series
 {
-    public class CustomSerializer<T> where T : class, new()
+    public class CustomSerializer<T> : ISerializationProvider<T> where T : class, new()
     {
         string FileName = "";
         public CustomSerializer(string fileName)

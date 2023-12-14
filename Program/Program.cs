@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using goods;
 
-namespace Demo
+namespace series
 {
     public class Program
     {

@@ -2,9 +2,9 @@
 using System.Text.Json;
 using goods;
 
-namespace Demo
+namespace series
 {
-    public class JSONSerializer<T> where T : class
+    public class JSONSerializer<T> : ISerializationProvider<T> where T : class 
     {
         string FileName = "";
         public JSONSerializer(string fileName)

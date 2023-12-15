@@ -1,11 +1,9 @@
 ﻿using System.Reflection;
 using System.Text;
-using System.Reflection;
-using System.Text;
 
-namespace Demo
+namespace series
 {
-    public class CustomSerializer<T> where T : class, new()
+    public class CustomSerializer<T> : ISerializationProvider<T> where T : class, new()
     {
         string FileName = "";
         public CustomSerializer(string fileName)
@@ -25,7 +23,7 @@ namespace Demo
                 while ((line = streamReader.ReadLine()) != null)
                 {
                     entity.Append(line);
-                    if (line.EndsWith(">>"))
+                    if (line.EndsWith("}"))
                     {
                         reading.Add(DeSerialize(entity.ToString(), new T()));
                     }
@@ -48,21 +46,21 @@ namespace Demo
         {
             var sb = new StringBuilder();
             sb.AppendLine();
-            sb.Append("<<");
+            sb.Append("{");
             var myType = obj.GetType();
             IList<PropertyInfo> props = new List<PropertyInfo>(myType.GetProperties());
             foreach (var prop in props)
             {
                 var propValue = prop.GetValue(obj, null);
                 sb.AppendLine();
-                sb.Append(@"- " + prop.Name + " : " + propValue);
+                sb.Append(prop.Name + ": " + propValue);
             }
             sb.AppendLine();
-            sb.Append(">>");
+            sb.Append("}");
             return sb.ToString();
         }
         public static List<string> ExtractData(
-            string text, string startString = "<?", string endString = "?>", bool raw = false)
+            string text, string startString = "{", string endString = "}", bool raw = false)
         {
             var matched = new List<string>();
             var exit = false;
@@ -73,8 +71,8 @@ namespace Demo
                 if (indexStart != -1 && indexEnd != -1)
                 {
                     if (raw)
-                        matched.Add("<?" + text.Substring(indexStart + startString.Length,
-                                        indexEnd - indexStart - startString.Length) + "?>");
+                        matched.Add("{" + text.Substring(indexStart + startString.Length,
+                                        indexEnd - indexStart - startString.Length) + "}");
                     else
                         matched.Add(text.Substring(indexStart + startString.Length,
                             indexEnd - indexStart - startString.Length));
@@ -90,11 +88,11 @@ namespace Demo
         public static List<Data> ExtractValuesFromData(string text)
         {
             var listOfData = new List<Data>();
-            var allData = ExtractData(text, "[", "]");
+            var allData = ExtractData(text);
             foreach (var data in allData)
             {
-                var pName = data.Substring(0, data.IndexOf("=", StringComparison.Ordinal));
-                var pValue = data.Substring(data.IndexOf("=", StringComparison.Ordinal) + 1);
+                var pName = data.Substring(0, data.IndexOf(": ", StringComparison.Ordinal));
+                var pValue = data.Substring(data.IndexOf(": ", StringComparison.Ordinal) + 1);
                 listOfData.Add(new Data { PropertyName = pName, Value = pValue });
             }
             return listOfData;

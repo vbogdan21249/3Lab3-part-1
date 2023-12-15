@@ -1,9 +1,10 @@
 ﻿using System.Runtime.Serialization.Json;
 using System.Text.Json;
+using goods;
 
-namespace Demo
+namespace series
 {
-    public class JSONSerializer<T> where T : class
+    public class JSONSerializer<T> : ISerializationProvider<T> where T : class 
     {
         string FileName = "";
         public JSONSerializer(string fileName)
@@ -11,6 +12,7 @@ namespace Demo
             FileName = AppDomain.CurrentDomain.BaseDirectory + fileName;
             using StreamWriter w = File.AppendText(FileName);
         }
+
         public List<T> Load()
         {
             using (FileStream fileStream = new(FileName, FileMode.Open))

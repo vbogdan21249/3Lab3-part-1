@@ -1,0 +1,5 @@
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net5.0\demo.GeneratedMSBuildEditorConfig.editorconfig
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net5.0\demo.AssemblyInfoInputs.cache
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net5.0\demo.AssemblyInfo.cs
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net5.0\demo.csproj.CoreCompileInputs.cache
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net5.0\demo.sourcelink.json

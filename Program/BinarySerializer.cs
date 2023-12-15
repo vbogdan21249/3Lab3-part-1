@@ -1,12 +1,11 @@
 ﻿using System.Runtime.Serialization.Formatters.Binary;
 
-namespace Demo
+namespace series
 {
-#pragma warning disable SYSLIB0011
-    public class BinarySerializer<T> where T : class
+    public class BinarySerializer<T> : ISerializationProvider<T> where T : class
     {
-        string FileName = "";
-        BinaryFormatter formatter = new BinaryFormatter();
+        string FileName;
+        BinaryFormatter binaryFormatter = new BinaryFormatter();
         public BinarySerializer(string fileName)
         {
             FileName = AppDomain.CurrentDomain.BaseDirectory + fileName;
@@ -16,7 +15,7 @@ namespace Demo
         {
             using (FileStream fileStream = new(FileName, FileMode.OpenOrCreate))
             {
-                formatter.Serialize(fileStream, obj);
+                binaryFormatter.Serialize(fileStream, obj);
             }
         }
         public List<T> Load()
@@ -24,7 +23,7 @@ namespace Demo
             List<T> deserialised;
             using (FileStream fileStream = new(FileName, FileMode.Open))
             {
-                deserialised = (List<T>)formatter.Deserialize(fileStream);
+                deserialised = (List<T>)binaryFormatter.Deserialize(fileStream);
             }
             return deserialised;
         }

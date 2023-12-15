@@ -1,9 +1,16 @@
-﻿using goods;
+﻿using System.Text.Json;
+using goods;
 
-namespace Demo
+namespace series
 {
-    public class Program()
+    public class Program
     {
+        public static void newParagraph(string text, ConsoleColor color = ConsoleColor.Green)
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine(text);
+            Console.ResetColor();
+        }
         static void Main(string[] args)
         {
             List<Goods> goodsList = new()
@@ -14,66 +21,39 @@ namespace Demo
                 new Goods("Brake disc", "Remsa", 1048, 35),
                 new Goods("Brake liquid", "Ferodo", 239, 45)
             };
-
+            
+            //
+            // -- JSON ---
+            //
             JSONSerializer<Goods> JSONSerializer = new("json.json");
             JSONSerializer.Save(goodsList);
-            Console.WriteLine("Saved to JSON:");
-            foreach (Goods goods in goodsList)
-            {
-                Console.WriteLine(goods);
-            }
-
+            goodsList.Clear();
             goodsList = JSONSerializer.Load();
-            Console.WriteLine("Loaded from JSON:");
-            foreach (Goods goods in goodsList)
-            {
-                Console.WriteLine(goods);
-            }
 
-            //CustomSerializer<Goods> customSerializer = new("custom.txt");
-            //customSerializer.Save(goodsList);
-            //Console.WriteLine("Saved to Custom:");
-            //foreach (Goods goods in goodsList)
-            //{
-            //    Console.WriteLine(goods.Display());
-            //}
+            //
+            // -- XML ---
+            //
+            XMLSerializer<Goods> xmlSerializer = new("xml.xml");
+            xmlSerializer.Save(goodsList);
+            goodsList.Clear();
+            goodsList = xmlSerializer.Load();
 
-            //goodsList = customSerializer.Load();
-            //Console.WriteLine("Loaded from Custom:");
-            //foreach (Goods goods in goodsList)
-            //{
-            //    Console.WriteLine(goods.Display());
-            //}
+            //
+            // -- Custom ---
+            //
+            CustomSerializer<Goods> customSerializer = new("custom.txt");
+            customSerializer.Save(goodsList);
+            goodsList.Clear();
+            goodsList = customSerializer.Load();
 
-            //XMLSerializer<Goods> xmlSerializer = new("xml.xml");
-            //xmlSerializer.Save(goodsList);
-            //Console.WriteLine("Saved to XML:");
-            //foreach (Goods goods in goodsList)
-            //{
-            //    Console.WriteLine(goods.Display());
-            //}
+            //
+            // -- Binary --
+            //
+            BinarySerializer<Goods> binarySerializer = new("binary.bin");
+            binarySerializer.Save(goodsList);
+            goodsList.Clear();
+            goodsList = binarySerializer.Load();
 
-            //goodsList = xmlSerializer.Load();
-            //Console.WriteLine("Loaded from Custom: ");
-            //foreach (Goods goods in goodsList)
-            //{
-            //    Console.WriteLine(goods.Display());
-            //}
-
-            //BinarySerializer<Goods> binarySerializer = new("binary.bin");
-            //binarySerializer.Save(goodsList);
-            //Console.WriteLine("Saved to Binary:");
-            //foreach (Goods goods in goodsList)
-            //{
-            //    Console.WriteLine(goods.Display());
-            //}
-
-            //goodsList = binarySerializer.Load();
-            //Console.WriteLine("Loaded from Binary: ");
-            //foreach (Goods goods in goodsList)
-            //{
-            //    Console.WriteLine(goods.Display());
-            //}
 
         }
     }

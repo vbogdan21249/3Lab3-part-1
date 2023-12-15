@@ -3,9 +3,9 @@
 namespace goods;
 
 [Serializable]
-public class Goods : IComparable<Goods>
+public class Goods
 {
-    private static int _lastGeneratedId = 0;    
+    private static int _lastGeneratedId = 0;
 
     public int code { get; set; }
     public string name { get; set; }
@@ -13,15 +13,15 @@ public class Goods : IComparable<Goods>
     public double cost { get; set; }
     public int quantityInTheLot { get; set; }
     public Goods() { }
-    
-    [JsonConstructor]
-    public Goods(string Name, string Manufacture, double Cost, int Quantity)
+
+    //[JsonConstructor]
+    public Goods(string Name, string Manufacture, double Cost, int quantity)
     {
         code = GenerateUniqueId();
         name = Name;
         manufacture = Manufacture;
         cost = Cost;
-        quantityInTheLot = Quantity;    
+        quantityInTheLot = quantity;
     }
 
     public double TotalLotCost(int code)
@@ -41,7 +41,7 @@ public class Goods : IComparable<Goods>
     {
         return cost * quantityInTheLot;
     }
-    public string Display()
+    public override string ToString()
     {
         double totalCost = CalculateLotCost();
         return $"\t{name} ({code})\n" +
@@ -50,15 +50,10 @@ public class Goods : IComparable<Goods>
                $"Cost: {cost:F2} UAH\n" +
                $"Total cost: {totalCost:F2} UAH\n";
     }
-
-    public int CompareTo(Goods? other)
-    {
-        return cost.CompareTo(other?.cost);
-    }
+    
     private int GenerateUniqueId()
     {
         return ++_lastGeneratedId;
     }
 
-    
 }

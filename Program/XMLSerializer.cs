@@ -1,8 +1,8 @@
 ﻿using System.Xml.Serialization;
 
-namespace Demo
+namespace series
 {
-    public class XMLSerializer<T> where T : class
+    public class XMLSerializer<T> : ISerializationProvider<T> where T : class
     {   
         string FileName = "";
         readonly XmlSerializer serializer = new(typeof(List<T>));

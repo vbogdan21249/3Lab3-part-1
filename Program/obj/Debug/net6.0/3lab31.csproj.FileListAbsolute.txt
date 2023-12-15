@@ -1,0 +1,15 @@
+D:\OOP\3Lab3-part-1\Program\bin\Debug\net6.0\3lab31.exe
+D:\OOP\3Lab3-part-1\Program\bin\Debug\net6.0\3lab31.deps.json
+D:\OOP\3Lab3-part-1\Program\bin\Debug\net6.0\3lab31.runtimeconfig.json
+D:\OOP\3Lab3-part-1\Program\bin\Debug\net6.0\3lab31.dll
+D:\OOP\3Lab3-part-1\Program\bin\Debug\net6.0\3lab31.pdb
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net6.0\3lab31.GeneratedMSBuildEditorConfig.editorconfig
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net6.0\3lab31.AssemblyInfoInputs.cache
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net6.0\3lab31.AssemblyInfo.cs
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net6.0\3lab31.csproj.CoreCompileInputs.cache
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net6.0\3lab31.sourcelink.json
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net6.0\3lab31.dll
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net6.0\refint\3lab31.dll
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net6.0\3lab31.pdb
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net6.0\3lab31.genruntimeconfig.cache
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net6.0\ref\3lab31.dll

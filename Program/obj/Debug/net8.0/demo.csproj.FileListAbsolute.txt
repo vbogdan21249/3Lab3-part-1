@@ -12,3 +12,4 @@ D:\OOP\3Lab3-part-1\Program\obj\Debug\net8.0\refint\demo.dll
 D:\OOP\3Lab3-part-1\Program\obj\Debug\net8.0\demo.pdb
 D:\OOP\3Lab3-part-1\Program\obj\Debug\net8.0\demo.genruntimeconfig.cache
 D:\OOP\3Lab3-part-1\Program\obj\Debug\net8.0\ref\demo.dll
+D:\OOP\3Lab3-part-1\Program\obj\Debug\net8.0\demo.sourcelink.json
